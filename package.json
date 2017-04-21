@@ -1,0 +1,16 @@
+{
+    "name": "@bestbeforetoday/roman-to-arabic",
+    "version": "1.0.0",
+    "author": "Mark S. Lewis",
+    "private": true,
+    "license": "Apache-2.0",
+    "description": "Roman numerals to arabic number converter",
+
+    "devDependencies": {
+        "chai": "^3.5.0",
+        "mocha": "^3.2.0"
+    },
+    "scripts": {
+        "test": "mocha"
+    }
+}
