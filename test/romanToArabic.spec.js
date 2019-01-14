@@ -55,10 +55,10 @@ describe("romanToArabic", () => {
     });
 
     describe("invalid input", () => {
-        it("should not throw Error for empty string", () => {
-            expect(() => romanToArabic("")).to.not.throw(Error);
+        it("return 0 for empty string", () => {
+            expect(romanToArabic("")).to.equal(0);
         });
-        it("should return NaN for non-numeral characters", () => {
+        it("return NaN for non-numeral characters", () => {
             expect(romanToArabic("IQ")).to.be.NaN;
         });
     });
