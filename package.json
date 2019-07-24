@@ -6,15 +6,15 @@
     "license": "Apache-2.0",
     "description": "Roman numerals to arabic number converter",
     "devDependencies": {
-        "chai": "^3.5.0",
-        "eslint": "^5.12.0",
-        "mocha": "^3.5.3",
-        "nyc": "^13.1.0"
+        "chai": "^4.2.0",
+        "eslint": "^6.1.0",
+        "mocha": "^6.2.0",
+        "nyc": "^14.1.1"
     },
     "scripts": {
         "test": "npm run lint && npm run coverage",
-        "lint": "eslint .",
-        "coverage": "nyc npm run unit-test",
-        "unit-test": "mocha test"
+        "lint": "npx eslint .",
+        "coverage": "npx nyc npm run unit-test",
+        "unit-test": "npx mocha test"
     }
 }
