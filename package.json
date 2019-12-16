@@ -1,20 +1,22 @@
 {
     "name": "@bestbeforetoday/roman-to-arabic",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "author": "Mark S. Lewis",
     "private": true,
     "license": "Apache-2.0",
     "description": "Roman numerals to arabic number converter",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
     "devDependencies": {
-        "chai": "^4.2.0",
-        "eslint": "^6.1.0",
-        "mocha": "^6.2.0",
-        "nyc": "^14.1.1"
+        "@types/jest": "^24.0.23",
+        "@types/node": "^12.12.17",
+        "jest": "^24.9.0",
+        "ts-jest": "^24.2.0",
+        "typescript": "^3.7.3"
     },
     "scripts": {
-        "test": "npm run lint && npm run coverage",
-        "lint": "npx eslint .",
-        "coverage": "npx nyc npm run unit-test",
-        "unit-test": "npx mocha test"
+        "build": "npm run clean && npx tsc",
+        "clean": "rm -rf dist",
+        "test": "npm run build && npx jest --coverage"
     }
 }
