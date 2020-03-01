@@ -8,15 +8,15 @@
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "devDependencies": {
-        "@types/jest": "^24.0.23",
-        "@types/node": "^12.12.17",
+        "@types/jest": "^24.9.1",
+        "@types/node": "^12.12.29",
         "jest": "^24.9.0",
-        "ts-jest": "^24.2.0",
-        "typescript": "^3.7.3"
+        "ts-jest": "^24.3.0",
+        "typescript": "^3.8.3"
     },
     "scripts": {
-        "build": "npm run clean && npx tsc",
+        "build": "npm run clean && tsc",
         "clean": "rm -rf dist",
-        "test": "npm run build && npx jest --coverage"
+        "test": "npm run build && jest"
     }
 }
