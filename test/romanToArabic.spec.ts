@@ -1,61 +1,51 @@
 import { romanToArabic } from "../src/romanToArabic";
 
-function testValue(input: string, output: number): void {
-    const result = romanToArabic(input);
-    expect(result).toEqual(output);
-}
-
 describe("romanToArabic", () => {
     describe("single numeral", () => {
-        test("I equals 1", () => testValue("I", 1));
-        test("V equals 5", () => testValue("V", 5));
-        test("X equals 10", () => testValue("X", 10));
-        test("L equals 50", () => testValue("L", 50));
-        test("C equals 100", () => testValue("C", 100));
-        test("D equals 500", () => testValue("D", 500));
-        test("M equals 1000", () => testValue("M", 1000));
+        test("I is 1", () => expect(romanToArabic("I")).toEqual(1));
+        test("V is 5", () => expect(romanToArabic("V")).toEqual(5));
+        test("X is 10", () => expect(romanToArabic("X")).toEqual(10));
+        test("L is 50", () => expect(romanToArabic("L")).toEqual(50));
+        test("C is 100", () => expect(romanToArabic("C")).toEqual(100));
+        test("D is 500", () => expect(romanToArabic("D")).toEqual(500));
+        test("M is 1000", () => expect(romanToArabic("M")).toEqual(1000));
     });
 
     describe("addition", () => {
-        test("II equals 2", () => testValue("II", 2));
-        test("III equals 3", () => testValue("III", 3));
-        test("IIII equals 4", () => testValue("IIII", 4));
-        test("VI equals 6", () => testValue("VI", 6));
-        test("XVI equals 16", () => testValue("XVI", 16));
-        test("LXVI equals 66", () => testValue("LXVI", 66));
-        test("CLXVI equals 166", () => testValue("CLXVI", 166));
-        test("DCLXVI equals 666", () => testValue("DCLXVI", 666));
-        test("MDCLXVI equals 1666", () => testValue("MDCLXVI", 1666));
-        test("MMMDCCCCLXXXXVIIII equals 3999", () => testValue("MMMDCCCCLXXXXVIIII", 3999));
+        test("II is 2", () => expect(romanToArabic("II")).toEqual(2));
+        test("III is 3", () => expect(romanToArabic("III")).toEqual(3));
+        test("IIII is 4", () => expect(romanToArabic("IIII")).toEqual(4));
+        test("VI is 6", () => expect(romanToArabic("VI")).toEqual(6));
+        test("XVI is 16", () => expect(romanToArabic("XVI")).toEqual(16));
+        test("LXVI is 66", () => expect(romanToArabic("LXVI")).toEqual(66));
+        test("CLXVI is 166", () => expect(romanToArabic("CLXVI")).toEqual(166));
+        test("DCLXVI is 666", () => expect(romanToArabic("DCLXVI")).toEqual(666));
+        test("MDCLXVI is 1666", () => expect(romanToArabic("MDCLXVI")).toEqual(1666));
+        test("MMMDCCCCLXXXXVIIII is 3999", () => expect(romanToArabic("MMMDCCCCLXXXXVIIII")).toEqual(3999));
     });
 
     describe("subtraction", () => {
-        test("IV equals 4", () => testValue("IV", 4));
-        test("IX equals 9", () => testValue("IX", 9));
-        test("XL equals 40", () => testValue("XL", 40));
-        test("XC equals 90", () => testValue("XC", 90));
-        test("CD equals 400", () => testValue("CD", 400));
-        test("CM equals 900", () => testValue("CM", 900));
+        test("IV is 4", () => expect(romanToArabic("IV")).toEqual(4));
+        test("IX is 9", () => expect(romanToArabic("IX")).toEqual(9));
+        test("XL is 40", () => expect(romanToArabic("XL")).toEqual(40));
+        test("XC is 90", () => expect(romanToArabic("XC")).toEqual(90));
+        test("CD is 400", () => expect(romanToArabic("CD")).toEqual(400));
+        test("CM is 900", () => expect(romanToArabic("CM")).toEqual(900));
     });
 
     describe("combination", () => {
-        test("XLVI equals 46", () => testValue("XLVI", 46));
-        test("XLIV equals 44", () => testValue("XLIV", 44));
-        test("XCVI equals 96", () => testValue("XCVI", 96));
-        test("XCIV equals 94", () => testValue("XCIV", 94));
-        test("CDLXVI equals 466", () => testValue("CDLXVI", 466));
-        test("CDXLIX equals 449", () => testValue("CDXLIX", 449));
-        test("CMLXVI equals 966", () => testValue("CMLXVI", 966));
-        test("CMXLIV equals 944", () => testValue("CMXLIV", 944));
+        test("XLVI is 46", () => expect(romanToArabic("XLVI")).toEqual(46));
+        test("XLIV is 44", () => expect(romanToArabic("XLIV")).toEqual(44));
+        test("XCVI is 96", () => expect(romanToArabic("XCVI")).toEqual(96));
+        test("XCIV is 94", () => expect(romanToArabic("XCIV")).toEqual(94));
+        test("CDLXVI is 466", () => expect(romanToArabic("CDLXVI")).toEqual(466));
+        test("CDXLIX is 449", () => expect(romanToArabic("CDXLIX")).toEqual(449));
+        test("CMLXVI is 966", () => expect(romanToArabic("CMLXVI")).toEqual(966));
+        test("CMXLIV is 944", () => expect(romanToArabic("CMXLIV")).toEqual(944));
     });
 
     describe("invalid input", () => {
-        test("return 0 for empty string", () => {
-            expect(romanToArabic("")).toEqual(0);
-        });
-        test("return NaN for non-numeral characters", () => {
-            expect(romanToArabic("IQ")).toBeNaN;
-        });
+        test("return 0 for empty string", () => expect(romanToArabic("")).toEqual(0));
+        test("return NaN for non-numeral characters", () => expect(romanToArabic("IQ")).toBeNaN());
     });
-
 });

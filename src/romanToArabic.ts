@@ -8,17 +8,10 @@ const numeralToArabicMap: { [numeral: string]: number } = {
     "I": 1
 };
 
-function applySubtractions(accumulator: number[], value: number, index: number): number[] {
-    // Subtract numerals that preceed a higher value numeral
-    if (index > 0) {
-        const previousIndex = index - 1;
-        const previousValue = accumulator[previousIndex];
-        if (previousValue < value) {
-            accumulator[previousIndex] = -previousValue;
-        }
-    }
-    accumulator.push(value);
-    return accumulator;
+function applySubtraction(value: number, index: number, values: number[]): number {
+    // Numerals that precede a higher value numeral are subtractions
+    const nextValue = values[index + 1];
+    return value < nextValue ? -value : value;
 }
 
 /**
@@ -29,6 +22,6 @@ function applySubtractions(accumulator: number[], value: number, index: number):
 export function romanToArabic(roman: string): number {
     return Array.from(roman)
         .map((numeral) => numeralToArabicMap[numeral])
-        .reduce(applySubtractions, [])
+        .map(applySubtraction)
         .reduce((a, b) => a + b, 0);
 }
